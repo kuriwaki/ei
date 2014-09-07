@@ -1,1 +1,12 @@
-exportPattern("^[[:alpha:]]+")
+## This was the old namespace
+## This makes everything that begins with alpha character available
+##exportPattern("^[[:alpha:]]+")   
+
+export(ei,
+       ei.sim,
+       eiread,
+       bounds1,
+       tomogRxC)
+
+S3method(plot, ei)
+S3method(summary, ei)
