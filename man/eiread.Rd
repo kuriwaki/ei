@@ -15,10 +15,6 @@ eiread(ei.object, ...)
 	\item{\dots}{A list of quantities of interest for \code{eiread()} to return.  See values below.} 
 	}
 
-\details{
-	  
-}
-
 \value{
 \item{betab}{\eqn{p} x \eqn{1} point estimate of \eqn{\beta_i^b} based on its mean posterior.  See section 8.2}
 	\item{betaw}{\eqn{p} x \eqn{1} point estimate of \eqn{\beta_i^w} based on its mean posterior.  See section 8.2}
@@ -38,7 +34,7 @@ eiread(ei.object, ...)
 	\item{goodman}{Goodman's Regression.  See Section 3.1}
 }
 \author{
-
+  Gary King <<email: king@harvard.edu>> and Molly Roberts <<email: roberts8@fas.harvard.edu>>
 }
 \references{
 Gary King (1997). A Solution to the Ecological Inference Problem.  Princeton: Princeton University Press.

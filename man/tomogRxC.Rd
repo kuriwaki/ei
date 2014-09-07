@@ -5,7 +5,7 @@
   Plotting Ecological Inference Estimates with eiRxC information
 }
 \description{
- 
+	A tomography plot for an estimated Ecological Inference model in RxC data.
 }
 \usage{
 tomogRxC(formula, data, total=NULL, refine=100)
@@ -20,11 +20,6 @@ formula}
 numbers mean better resolution.} 
 }
  
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
-
-
 \references{
 Gary King (1997). A Solution to the Ecological Inference Problem.  Princeton: Princeton University Press.
 }
@@ -33,7 +28,7 @@ Gary King (1997). A Solution to the Ecological Inference Problem.  Princeton: Pr
 }
 
 \examples{
-data(RxCsample)
+data(RxCdata)
 formula = cbind(turnout, noturnout) ~ cbind(white, black,hisp)
-tomogRxC(formula, data=RxCsample)
+tomogRxC(formula, data=RxCdata)
 }
