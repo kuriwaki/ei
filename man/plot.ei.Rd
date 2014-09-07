@@ -17,7 +17,7 @@ plot.ei(ei.object, ...)
 }
  
 \details{
-%%  ~~ If necessary, more details than the description above ~~
+	Returns any of a set of possible graphical objects, mirroring those in the examples in King (1997).
 }
 
 \value{
@@ -38,7 +38,6 @@ plot.ei(ei.object, ...)
 	\item{boundXw}{\eqn{X_i} by the bounds on \eqn{\beta_i^w} (each precinct appears as one vertical line), see the lines in the right graph in Figure 13.2, page 238.}
 	\item{truth}{Compares truth to estimates at the district and precinct-level.  Requires \code{truth} in the \code{ei} object.  See Figures 10.4 (page 208) and 10.5 (page 210).}
     \item{movieD}{For each observation, one tomography plot appears with the line for the particular observation darkened.  After the graph for each observation appears, the user can choose to view the next observation (hit return), jump to a specific observation number (type in the number and hit return), or stop (hit "s" and return).}
-  }
   \item{movie}{For each observation, one page of graphics appears with
     the posterior distribution of \eqn{\beta_i^b} and \eqn{\beta_i^w}
     and a plot of the simulated values of  \eqn{\beta_i^b} and
@@ -46,11 +45,12 @@ plot.ei(ei.object, ...)
     view the next observation (hit return), jump to a specific
     observation number (type in the number and hit return), or stop (hit
     ``s" and return).}
+    }
 \references{
 Gary King (1997). A Solution to the Ecological Inference Problem.  Princeton: Princeton University Press.
 }
 \author{
-%%  ~~who you are~~
+  Gary King <<email: king@harvard.edu>> and Molly Roberts <<email: roberts8@fas.harvard.edu>>
 }
 \examples{
 data(sample)
