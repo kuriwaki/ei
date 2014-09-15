@@ -105,6 +105,7 @@ ei.estimate <- function(t,x,n,id,Zb=1,Zw=1, data=NA, erho=.5, esigma=.5, ebeta=.
   #Zw=Zw,numb=numb, erho=erho, esigma=esigma,
   #ebeta=ebeta, ealphab =ealphab, ealphaw=ealphaw, Rfun=Rfun,
   #hessian=T)
+  #
 
   #Find values of the Hessian that are 0 or 1.
   covs <- as.logical(ifelse(diag(solution$hessian)==0|
