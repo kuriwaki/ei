@@ -15,3 +15,4 @@
 all:
 	/usr/bin/R CMD Sweave ei.Rnw
 	pdflatex ei
+	rm -fv *.aux *.log *.toc *.blg *.bbl *.synctex.gz
