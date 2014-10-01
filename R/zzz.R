@@ -1072,7 +1072,7 @@ return(input)
 #names = Names of groups in order: X-axis, Y-axis, Other
 #covariate = extra group or covariate to create colors in the plot for
 tomogRxC <- function(formula, data, total=NULL, refine=100){
-	require(sp)
+	#require(sp)  Now specified as Import
     noinfocount = 0
 	form <- formula
     ##total <- dbuf$total
@@ -1384,7 +1384,7 @@ par(xpd=FALSE)
 #names = Names of groups in order: X-axis, Y-axis, Other
 #covariate = extra group or covariate to create colors in the plot for
 .bndplot <- function(dbuf){
-		require(sp)
+    #require(sp)  Now specified as Import
 	form <- dbuf$formula
     total <- dbuf$total
     data <- dbuf$data

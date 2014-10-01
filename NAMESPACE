@@ -8,5 +8,18 @@ export(ei,
        bounds1,
        tomogRxC)
 
+import(mvtnorm)
+import(msm)
+import(tmvtnorm)
+import(ellipse)
+import(plotrix)
+import(MASS)
+import(ucminf)
+import(cubature)
+import(mnormt)
+import(foreach)
+import(eiPack)
+import(sp)
+
 S3method(plot, ei)
 S3method(summary, ei)
