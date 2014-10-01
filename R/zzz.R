@@ -98,8 +98,8 @@
   if (Rfun==3){
     fun <- function(x) dmvnorm(x,mean,corr)
     for (i in 1:length(x[sub])){
-      qi <- adaptIntegrate(fun, lower=lower[i,],
-                           upper=upper[i,])$integral
+      qi <- adaptIntegrate(fun, lowerLimit=lower[i,],
+                           upperLimit=upper[i,])$integral
       out[i] <- log(qi)
       #if(is.na(out[i])|abs(out[i]==Inf)) print("R not real")
       out[i] <- ifelse(is.na(out[i])|abs(out[i]==Inf), 999, out[i])
