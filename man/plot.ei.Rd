@@ -8,11 +8,11 @@ Plotting Ecological Inference Estimates
 `plot' method for the class `ei'.
 }
 \usage{
-plot.ei(ei.object, ...)
+\method{plot}{ei}(x, \dots)
 }
 
 \arguments{
-  \item{ei.object}{An \code{ei} object from the function \code{ei}.}
+  \item{x}{An \code{ei} object from the function \code{ei}.}
 \item{\dots}{A list of options to return in graphs.  See values below.} 
 }
  
