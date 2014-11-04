@@ -200,7 +200,7 @@ if (Rfun==5){
 
 #Tomography plot
 
-.tomog <- function(ei.object){
+.tomog <- function(ei.object,lci=T){
   x <- ei.object$x
   t <- ei.object$t
   n <- ei.object$n
@@ -210,16 +210,21 @@ if (Rfun==5){
   wbounds <- cbind(bounds[,4], bounds[,3])
   #Number of precincts n
   n <- dim(bounds)[1]
-  #Plot
-  plot(c(100,200), xlim=c(0,1), ylim=c(0,1), col="white",
-       ylab="betaW", xlab="betaB", xaxs="i",yaxs="i",
-       main="Tomography Plot")
+  #Figure out length of line for LOCOI
+  length<-NA
   for(i in 1:n){
-    lines(bbounds[i,], wbounds[i,], col="yellow")
+    length[i]<-sqrt(abs(bbounds[i,1]-bbounds[i,2])^2 + abs(wbounds[i,1]-wbounds[i,2])^2)
   }
+  scale<-((length-min(length))/(max(length)-min(length)))*100
+  #Plot
+  plot(c(100,200), xlim=c(0,1), ylim=c(0,1),
+       col="white", ylab="betaW", xlab="betaB", xaxs="i",
+       yaxs="i", main=title)
+  if(lci=T){for(i in 1:n){lines(bbounds[i,], wbounds[i,], col=hcl(h=30,c=100,l=scale[i],alpha=1))}}
+  else{for(i in 1:n){lines(bbounds[i,], wbounds[i,], col="yellow")}}
 }
 
-.tomogd <- function(x,t,n,title){
+.tomogd <- function(x,t,n,title,lci=T){
   bounds <- bounds1(x,t,n)
   bbounds <- cbind(bounds[,1], bounds[,2])
   wbounds <- cbind(bounds[,4], bounds[,3])
@@ -227,9 +232,8 @@ if (Rfun==5){
   plot(c(100,200), xlim=c(0,1), ylim=c(0,1),
        col="white", ylab="betaW", xlab="betaB", xaxs="i",
        yaxs="i", main=title)
-  for(i in 1:n){
-    lines(bbounds[i,], wbounds[i,], col="yellow")
-  }
+  if(lci=T){for(i in 1:n){lines(bbounds[i,], wbounds[i,], col=hcl(h=30,c=100,l=scale[i],alpha=1))}}
+  else{for(i in 1:n){lines(bbounds[i,], wbounds[i,], col="yellow")}}
 }
 
 #Tomography plot with ML contours
@@ -299,7 +303,7 @@ if (Rfun==5){
   n <- ei.object$n[ok]
   betabs <- ei.object$betabs[ok,]
   betaws <- ei.object$betaws[ok,]
-  .tomogd(x,t,n,"Tomography Plot with 80% CIs")
+  .tomogd(x,t,n,"Tomography Plot with 80% CIs",lci=F)
   #Create confidence intervales
   betabcd <- apply(betabs,1,function(x) quantile(x, probs=c(.1,.9)))
   betawcd <- apply(betaws,1,function (x) quantile(x,probs=c(.1,.9)))
@@ -323,7 +327,7 @@ if (Rfun==5){
   n <- ei.object$n[ok]
   betabs <- ei.object$betabs[ok,]
   betaws <- ei.object$betaws[ok,]
-  .tomogd(x,t,n,"Tomography Plot with 95% CIs")
+  .tomogd(x,t,n,"Tomography Plot with 95% CIs",lci=F)
   betabcd <- apply(betabs,1,function(x) quantile(x,
                                                  probs=c(.025,.975)))
   betawcd <- apply(betaws,1,function (x)
