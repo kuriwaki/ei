@@ -8,7 +8,12 @@ Ecological Inference Estimation
 \code{ei} is the main command in the package \code{EI}.  It gives observation-level estimates (and various related statistics) of \eqn{\beta_i^b} and \eqn{\beta_i^w} given variables \eqn{T_i} and \eqn{X_i} (\eqn{i=1,...,n}) in this accounting identity: \eqn{T_i=\beta_i^b*X_i + \beta_i^w*(1-X_i)}.  Results are stored in an \code{ei} object, that can be read with \code{summary()} or \code{eiread()} and graphed in \code{plot()}.
 }
 \usage{
-ei(formula, total = NULL, Zb = 1, Zw = 1, id = NA, data =NA, erho = 0.5, esigma = 0.5, ebeta = 0.5, ealphab = NA, ealphaw = NA, truth = NA, simulate = TRUE, covariate = NULL, lambda1 = 4, lambda2 = 2, covariate.prior.list = NULL, tune.list = NULL, start.list = NULL, sample = 1000, thin = 1, burnin = 1000, verbose = 0, ret.beta = "r", ret.mcmc = TRUE, usrfun = NULL)
+ei(formula, total = NULL, Zb = 1, Zw = 1, id = NA, data =NA, erho = 0.5, 
+esigma = 0.5, ebeta = 0.5, ealphab = NA, ealphaw = NA, truth = NA, 
+simulate = TRUE, covariate = NULL, lambda1 = 4, lambda2 = 2, 
+covariate.prior.list = NULL, tune.list = NULL, start.list = NULL, 
+sample = 1000, thin = 1, burnin = 1000, verbose = 0, ret.beta = "r", 
+ret.mcmc = TRUE, usrfun = NULL)
 }
 
 \arguments{

@@ -1,6 +1,6 @@
 #@x is an ei.object
 
-summary.ei <- function(object){
+summary.ei <- function(object,...){
   if("psi" %in% names(object)){
   ei1 <- object
   #Calculate maximum likelihood results in the scale of estimation
