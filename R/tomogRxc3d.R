@@ -1,6 +1,6 @@
 # 3-d Tomography Plot for 2x3 Case
 
-tomogRxC3d <- function(formula,data,total=NULL,lci=T,estimates=F,ci=F,level=.95,seed=1234,color=hcl(h=30,c=100,l=60),transparency=.75,light=F,rotate=T){
+tomogRxC3d <- function(formula,data,total=NULL,lci=TRUE,estimates=FALSE,ci=FALSE,level=.95,seed=1234,color=hcl(h=30,c=100,l=60),transparency=.75,light=FALSE,rotate=TRUE){
   ##Run Through RxC Code Once (from Molly's original tomogRxC function)
   require(rgl)
   require(sp)
