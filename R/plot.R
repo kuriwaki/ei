@@ -3,8 +3,8 @@
 
 plot.ei <- function(x, ...){
   ei.object <- x
-  function.list <- list("tomogD" = .tomog, "tomog"=.tomogl,
-                        "tomogCI"=.tomog80CI, "tomogCI95"=.tomog95CI,
+  lci.function.list <- list("tomogD" = .tomog, "tomog"=.tomogl)    # Fix for passing lci value
+  function.list <- list("tomogCI"=.tomog80CI, "tomogCI95"=.tomog95CI,
                         "tomogE"=.tomogE, "tomogP" = .tomogP2,
                         "betab"=.betabd,
                         "betaw"=.betawd, "xt"=.xt, "xtc"=.xtc,
@@ -14,15 +14,24 @@ plot.ei <- function(x, ...){
                         "truth"=.truthfn,"eiRxCtomog"=.bndplot,
                         "movieD"=.movieD, "movie"=.movie)
   arguments <- list(...)
+  # Fix for passing lci value
+  if ("lci" %in% names(arguments)){
+    lci<-arguments$lci
+    arguments$lci<-NULL
+  } else {
+    lci<-TRUE
+  }
+
   results <- list()
-  if (length(arguments)!=1) {row = round(length(arguments)/2+.1)
+  if (length(arguments)!=1) {row = ceiling(length(arguments)/2)
                              par(mfrow=c(row, 2))
                            }
   for (arg in arguments) {
     if (arg %in% names(function.list)){
-      results[[arg]] <- function.list[[arg]] (ei.object)
-    }
-    else
+      results[[arg]] <- function.list[[arg]] (ei.object=ei.object)
+    } else if (arg %in% names(lci.function.list)) {
+      results[[arg]] <- lci.function.list[[arg]] (ei.object=ei.object, lci=lci)    # Fix for passing lci value
+    } else
       results[[arg]] <- NA
   }
 }

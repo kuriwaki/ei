@@ -12,17 +12,13 @@ Plotting Ecological Inference Estimates
 }
 
 \arguments{
-<<<<<<< HEAD
-  \item{ei.object}{An \code{ei} object from the function \code{ei}.}
-  \item{lci}{logical value specifying the use of the Law of Conservation of Ink, where the implicit information in the data is represented through color gradients, i.e. the color of the line is a function of the length of the tomography line.}
-=======
   \item{x}{An \code{ei} object from the function \code{ei}.}
->>>>>>> f1717689fae885a94a7bc09f7ea4d85fba61003d
-\item{\dots}{A list of options to return in graphs.  See values below.} 
+  \item{\dots}{A list of options to return in graphs.  See values below.} 
 }
  
 \details{
 	Returns any of a set of possible graphical objects, mirroring those in the examples in King (1997).
+	  Graphical option \code{lci} is a logical value specifying the use of the Law of Conservation of Ink, where the implicit information in the data is represented through color gradients, i.e. the color of the line is a function of the length of the tomography line.  This can be passed as an argument and is used for ``tomogD'' and ``tomog'' plots.
 }
 
 \value{

@@ -246,14 +246,14 @@ if (Rfun==5){
 }
 
 #Tomography plot with ML contours
-.tomogl <- function(ei.object){
+.tomogl <- function(ei.object, lci=TRUE){
   x <- ei.object$x
   t <- ei.object$t
   n <- ei.object$n
   Zb <- ei.object$Zb
   Zw <- ei.object$Zw
   phi <- ei.object$phi
-  .tomogd(x,t,n, "Tomography Plot with ML Contours")
+  .tomogd(x,t,n, "Tomography Plot with ML Contours", lci=lci)
   numb <- dim(Zb)[2]
   numw <- dim(Zw)[2]
   Bb0 <- phi[1]
