@@ -223,7 +223,7 @@ if (Rfun==5){
   plot(c(100,200), xlim=c(0,1), ylim=c(0,1),
        col="white", ylab="betaW", xlab="betaB", xaxs="i",
        yaxs="i", main=title)
-  if(lci=T){for(i in 1:n){lines(bbounds[i,], wbounds[i,], col=hcl(h=30,c=100,l=scale[i],alpha=1))}}
+  if(lci==T){for(i in 1:n){lines(bbounds[i,], wbounds[i,], col=hcl(h=30,c=100,l=scale[i],alpha=1))}}
   else{for(i in 1:n){lines(bbounds[i,], wbounds[i,], col="yellow")}}
 }
 
@@ -235,7 +235,7 @@ if (Rfun==5){
   plot(c(100,200), xlim=c(0,1), ylim=c(0,1),
        col="white", ylab="betaW", xlab="betaB", xaxs="i",
        yaxs="i", main=title)
-  if(lci=T){for(i in 1:n){lines(bbounds[i,], wbounds[i,], col=hcl(h=30,c=100,l=scale[i],alpha=1))}}
+  if(lci==T){for(i in 1:n){lines(bbounds[i,], wbounds[i,], col=hcl(h=30,c=100,l=scale[i],alpha=1))}}
   else{for(i in 1:n){lines(bbounds[i,], wbounds[i,], col="yellow")}}
 }
 
