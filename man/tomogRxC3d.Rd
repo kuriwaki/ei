@@ -15,7 +15,8 @@ tomogRxC3d(formula, data, total=NULL, lci=TRUE, estimates=FALSE, ci=FALSE, level
   \item{formula}{A formula of the form \code{cbind(col1, col2,...)~cbind(row1,row2,...)}}
  \item{data}{data that contains the data that corresponds to the
 formula}
-\item{total}{SOMETHING HERE}
+\item{total}{`total' is the name of the variable in the dataset that
+	  contains the number of individuals in each unit}
 \item{lci}{logical value specifying the use of the Law of Conservation of Ink, where the implicit information in the data is represented through color gradients, i.e. the color of the plane is a function of the area of the tomography plane.}
 \item{estimates}{logical value specifying whether the point estimates of \eqn{\beta}'s are included for each observation on the tomography plot.}
 \item{ci}{logical value specifying whether the estimated confidence ellipse is included on the tomography plot.}
