@@ -203,7 +203,7 @@ if (Rfun==5){
 
 #Tomography plot
 
-.tomog <- function(ei.object,lci=T){
+.tomog <- function(ei.object,title="Tomography Plot with the Data",lci=T){
   x <- ei.object$x
   t <- ei.object$t
   n <- ei.object$n
@@ -232,6 +232,12 @@ if (Rfun==5){
   bbounds <- cbind(bounds[,1], bounds[,2])
   wbounds <- cbind(bounds[,4], bounds[,3])
   n <- dim(bounds)[1]
+  #Figure out length of line for LOCOI
+  length<-NA
+  for(i in 1:n){
+      length[i]<-sqrt(abs(bbounds[i,1]-bbounds[i,2])^2 + abs(wbounds[i,1]-wbounds[i,2])^2)
+  }
+  scale<-((length-min(length))/(max(length)-min(length)))*100
   plot(c(100,200), xlim=c(0,1), ylim=c(0,1),
        col="white", ylab="betaW", xlab="betaB", xaxs="i",
        yaxs="i", main=title)
