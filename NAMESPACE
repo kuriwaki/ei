@@ -6,7 +6,8 @@ export(ei,
        ei.sim,
        eiread,
        bounds1,
-       tomogRxC)
+       tomogRxC,
+       tomogRxC3d)
 
 import(mvtnorm)
 import(msm)
@@ -19,6 +20,7 @@ import(cubature)
 import(mnormt)
 import(foreach)
 import(eiPack)
+import(rgl)
 import(sp)
 
 S3method(plot, ei)
