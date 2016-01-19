@@ -2,17 +2,15 @@
 
 tomogRxC3d <- function(formula,data,total=NULL,lci=TRUE,estimates=FALSE,ci=FALSE,level=.95,seed=1234,color=hcl(h=30,c=100,l=60),transparency=.75,light=FALSE,rotate=TRUE){
   ##Run Through RxC Code Once (from Molly's original tomogRxC function)
-  require(rgl)
-  require(sp)
-  require(grDevices)
+  #require(grDevices)
   
-  noinfocount = 0
+  noinfocount <- 0
   form <- formula
   dvname <- terms.formula(formula)[[2]]
   covariate <- NA
   #Make the bounds
   rows <- c(all.names(form)[6:(length(all.names(form)))])
-  names=rows
+  names <- rows
   cols <- c(all.names(form)[3])
   options(warn=-1)
   bnds <- bounds(form, data=data,rows=rows, column =cols,threshold=0)

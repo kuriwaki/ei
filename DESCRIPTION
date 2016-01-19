@@ -1,12 +1,12 @@
 Package: ei
 Version: 1.3
-Date: 2013-10-01
-Title: ei
-Author: Gary King <king@harvard.edu>, Molly Roberts <roberts8@fas.harvard.edu>
-Maintainer: Molly Roberts <molly.e.roberts@gmail.com>
+Date: 2016-01-20
+Title: A Package for Ecological Inference
+Author: Gary King <king@harvard.edu>, Molly Roberts <molly.e.roberts@gmail.com>
+Maintainer: James Honaker <zelig-zee@iq.harvard.edu>
 Depends: R (>= 2.5.0), eiPack
 Imports: mvtnorm, msm, tmvtnorm, ellipse, plotrix, MASS,
         ucminf, cubature, mnormt, foreach, rgl, sp
 Description: Software accompanying Gary King's book: A Solution to the Ecological Inference Problem. 
 License: GPL (>= 2)
-URL: http://gking.harvard.edu/zelig
+URL: http://gking.harvard.edu/eiR

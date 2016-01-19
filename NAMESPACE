@@ -1,8 +1,4 @@
-## This was the old namespace
-## This makes everything that begins with alpha character available
-##exportPattern("^[[:alpha:]]+")   
-
-export(ei,
+ export(ei,
        ei.sim,
        eiread,
        bounds1,
@@ -13,7 +9,6 @@ import(mvtnorm)
 import(msm)
 import(tmvtnorm)
 import(ellipse)
-import(plotrix)
 import(MASS)
 import(ucminf)
 import(cubature)
@@ -22,6 +17,13 @@ import(foreach)
 import(eiPack)
 import(rgl)
 import(sp)
+
+importFrom("plotrix","draw.circle")
+
+importFrom("grDevices", "chull", "hcl", "heat.colors", "rainbow", "rgb")
+importFrom("graphics", "abline", "image", "legend", "lines", "mtext", "par", "points", "polygon", "text")
+importFrom("stats", "coef", "cor", "cov", "density", "dnorm", "lm", "na.omit", "pnorm", "quantile", "runif", "sd", "terms.formula", "var", "weighted.mean")
+importFrom("utils", "head")
 
 S3method(plot, ei)
 S3method(summary, ei)

@@ -1,3 +1,4 @@
 .gitignore
 .git
 vignettes/copyRd.Rout
+README.md
