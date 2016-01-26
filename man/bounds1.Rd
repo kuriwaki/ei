@@ -12,7 +12,7 @@ bounds1(x, t, n)
 }
 \arguments{
 	\item{x}{vector of characteristics, e.g.  perc. of blacks in each district}
-	\item{t}{vector o fcharacteristics, e.g. perc. of people that voted in each district}
+	\item{t}{vector of characteristics, e.g. perc. of people that voted in each district}
 	\item{n}{size of each observation, e.g. number of voters in each district}
 }
  
