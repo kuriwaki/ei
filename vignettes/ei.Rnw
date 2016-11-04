@@ -1,3 +1,8 @@
+%\VignetteIndexEntry{EI: A(n R) Program for Ecological Inference}
+%\VignetteDepends{eiPack}
+
+
+
 \SweaveOpts{results=hide,prefix.string=vigpics/EI}
 %\include{zinput}
 \documentclass[11pt,oneside,letterpaper,titlepage]{article}
@@ -411,7 +416,7 @@ plot(dbuf, "truth")
 \newline
 \noindent The bottom two figures in Figure 5 plot the estimated values of $\beta_i^b$ and $\beta_i^w$ against the true values.  The size of each of the circles plotted is proportional to the number of blacks in the county in the first graph and the number of whites in each county in the second graph. If the estimated values were exactly equal to the true values, all of the points would be on the $45^{\circ}$ line.  Because the points fall quite close to the $45^{\circ}$ and do not deviate from the line in a systematic way, we can see that the \verb#EI# algorithm predicts the point estimates quite well.
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
 \begin{center}
 <<results=tex,echo=FALSE, eval=FALSE>>= 
 png("truth2.png", width=6, height=6, pointsize=10)
@@ -483,7 +488,7 @@ We can also plot this MCMC output to assess convergence:
 plot(out)
 @
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics{MCMCplot.png} 
 \end{center}
@@ -523,7 +528,7 @@ formula <- cbind(turnout, noturnout) ~ cbind(white, black, hisp)
 tomogRxC(formula, RxCdata)
 @ 
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics{whiteblackRxC.png} 
 \end{center}
@@ -559,7 +564,7 @@ formula <- cbind(turnout, noturnout) ~ cbind(white, hisp, black)
 tomogRxC(formula, RxCdata)
 @ 
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics{whitehispRxC.png} 
 \end{center}
@@ -577,7 +582,7 @@ formula <- cbind(turnout, noturnout) ~ cbind(hisp, black, white)
 tomogRxC(formula, RxCdata)
 @ 
 
-\begin{figure}[Ht]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics{hispblackRxC.png} 
 \end{center}
