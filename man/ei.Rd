@@ -28,7 +28,7 @@ the dataset}
 	\item{Zw}{
 \eqn{p} x \eqn{k^w} matrix of covariates or the name of covariates in
 the dataset}
-	\item{id}{`id' is the nae of the variable in the dataset that
+	\item{id}{`id' is the name of the variable in the dataset that
 	  identifies the precinct. Used for `movie' and `movieD' plot functions.}
 	\item{data}{ data frame that contains the variables that
 	  correspond to formula.  If using covariates and data is specified, data should also contain \code{Zb} and \code{Zw}.}
