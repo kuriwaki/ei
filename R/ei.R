@@ -5,7 +5,7 @@
 
 #@Rfun specifies function used to calculate R in the likelihood
 
-  ei <- function(formula, total=NULL, Zb=1,Zw=1, id=NA, data=NA, erho=.5, esigma=.5,
+  ei <- function(formula, total=NULL, Zb=1,Zw=1, id=NA, data=NA, erho=.5, esigma=.5, NSAMP=1000,
                ebeta=.5, ealphab=NA, ealphaw=NA, truth=NA, simulate=TRUE,covariate=NULL, lambda1=4, lambda2=2, covariate.prior.list=NULL, tune.list=NULL, start.list=NULL, sample=1000, thin=1, burnin=1000, verbose=0, ret.beta="r", ret.mcmc=TRUE, usrfun=NULL){
     #Extract formula
     dv <- terms.formula(formula)[[2]]
@@ -14,7 +14,7 @@
     x <- as.character(iv)
     n <- as.character(total)
     id <- as.character(id)
-    
+
     if(length(dv)==1){
     print("Running 2x2 ei")
 
@@ -33,7 +33,7 @@
                               error=function(x) ei(t,x,n, id=id,
                                       data=data, Zb=Zb, Zw=Zw,erho=3,esigma=esigma, ebeta=ebeta, ealphab=ealphab, ealphaw=ealphaw, truth=truth)), error=function(x) ei.estimate(t,x,n,
                                      id=id, data=data, Zb=Zb, Zw=Zw, erho=5,esigma=esigma, ebeta=ebeta, ealphab=ealphab, ealphaw=ealphaw, truth=truth))
-    dbuf.sim <- ei.sim(dbuf)
+    dbuf.sim <- ei.sim(dbuf, NSAMP)
     return(dbuf.sim)
 }
   }
@@ -63,7 +63,7 @@ ei.estimate <- function(t,x,n,id,Zb=1,Zw=1, data=NA, erho=.5, esigma=.5, ebeta=.
     if(is.character(Zw)) Zw <- data[[Zw]]
     id <- data[[id]]
   }
-  
+
   Zb <- as.matrix(Zb)
   Zw <- as.matrix(Zw)
 
@@ -123,7 +123,7 @@ ei.estimate <- function(t,x,n,id,Zb=1,Zw=1, data=NA, erho=.5, esigma=.5, ebeta=.
   return(output)
 }
 
- ei.sim <- function(ei.object){
+ ei.sim <- function(ei.object, NSAMP=1000){
    hessian <- ei.object$hessianC
    erho <- ei.object$erho
    esigma <- ei.object$esigma
@@ -145,15 +145,15 @@ ei.estimate <- function(t,x,n,id,Zb=1,Zw=1, data=NA, erho=.5, esigma=.5, ebeta=.
   message("Importance Sampling..")
   keep <- matrix(data=NA, ncol=(length(ei.object$phi)))
   resamp <- 0
-  while(dim(keep)[1] < 100){
-    keep <- .samp(t,x,n, Zb, Zw, ei.object$phi, hessian, 100, keep,
+  while(dim(keep)[1] < NSAMP){
+    keep <- .samp(t,x,n, Zb, Zw, ei.object$phi, hessian, NSAMP, keep,
                  numb=numb, covs, erho, esigma,
                  ebeta, ealphab, ealphaw, Rfun)
     resamp = resamp + 1
   }
 
   #Extract values from importance sampling
-  keep <- keep[2:100,]
+  keep <- keep[2:NSAMP,]
   mu <- keep[,1:2]
   sd <- keep[,3:4]
   rho <- keep[,5]
