@@ -16,6 +16,7 @@ import(mnormt)
 import(foreach)
 import(eiPack)
 import(sp)
+import(cli)
 
 importFrom("plotrix","draw.circle")
 

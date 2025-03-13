@@ -16,7 +16,7 @@
     id <- as.character(id)
 
     if(length(dv)==1){
-    print("Running 2x2 ei")
+        cli::cli_inform("Running 2x2 ei")
 
     if(simulate==FALSE){
     dbuf <- ei.estimate(t,x, n,id=id,data=data, Zb=Zb, Zw=Zw, erho=erho, esigma=esigma, ebeta=ebeta, ealphab=ealphab, ealphaw=ealphaw, truth=truth)
@@ -79,7 +79,7 @@ ei.estimate <- function(t,x,n,id,Zb=1,Zw=1, data=NA, erho=.5, esigma=.5, ebeta=.
   #Starting values
   start <- c(0,0,-1.2,-1.2, 0, rep(0, numb+numw))
 
-  message("Maximizing likelihood")
+ cli::cli_inform("Maximizing likelihood")
  solution <- ucminf(start, like, y=t, x=x, n=n, Zb=Zb,
      Zw=Zw,numb=numb, erho=erho, esigma=esigma,
      ebeta=ebeta, ealphab =ealphab,ealphaw=ealphaw, Rfun=Rfun, hessian=3)
@@ -142,15 +142,17 @@ ei.estimate <- function(t,x,n,id,Zb=1,Zw=1, data=NA, erho=.5, esigma=.5, ebeta=.
    id <- ei.object$id
    precision <- ei.object$precision
   #Begin Importance Sampling
-  message("Importance Sampling..")
   keep <- matrix(data=NA, ncol=(length(ei.object$phi)))
   resamp <- 0
+  cli::cli_progress_bar(name = "Importance Sampling", total = NSAMP)
   while(dim(keep)[1] < NSAMP){
     keep <- .samp(t,x,n, Zb, Zw, ei.object$phi, hessian, NSAMP, keep,
                  numb=numb, covs, erho, esigma,
                  ebeta, ealphab, ealphaw, Rfun)
     resamp = resamp + 1
+    cli::cli_progress_update()
   }
+  cli::cli_progress_done()
 
   #Extract values from importance sampling
   keep <- keep[2:NSAMP,]
